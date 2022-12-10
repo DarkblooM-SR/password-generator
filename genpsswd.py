@@ -7,15 +7,21 @@ def rand(min: int, max: int) -> int:
         if n >= min:
             return n
 
+def psswd(length: int, exclude: str | None) -> str:
+    word = ""
+    while len(word) < length:
+        char = chr(rand(33, 126))
+        if exclude == None or char not in exclude:
+            word = word + char
+    return word
+
 @click.command()
 @click.option("--length", "-l", help="Number of characters to be included in password (default: 16)", default=16, required=False)
 @click.option("--count", "-c", help="Number of passwords to generate (default: 1)", default=1, required=False)
-def generate(length: int, count: int) -> None:
+@click.option("--exclude", "-e", help="String representing a list of characters not to include in the password.", required=False)
+def generate(length: int, count: int, exclude: str | None) -> None:
     '''
     Generates one or multiple random password(s)
     '''
     for _ in range(count):
-        word = ""
-        for _ in range(length):
-            word = word + chr(rand(33, 126))
-        print(word)
+        print(psswd(length, exclude))
