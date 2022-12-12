@@ -2,10 +2,8 @@ import click
 from secrets import randbelow
 
 def rand(min: int, max: int) -> int:
-    while True:
-        n = randbelow(max + 1)
-        if n >= min:
-            return n
+    diff = max - min
+    return min + randbelow(diff + 1)
 
 def psswd(length: int, exclude: str | None) -> str:
     word = ""
