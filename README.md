@@ -9,3 +9,5 @@ git clone https://github.com/DarkblooM-SR/password-generator.git
 cd password-generator
 ./install.sh
 ```
+
+**Make sure you keep the directory, otherwise it won't work.**
