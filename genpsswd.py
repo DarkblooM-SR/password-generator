@@ -2,8 +2,7 @@ import click
 from secrets import randbelow
 
 def rand(min: int, max: int) -> int:
-    diff = max - min
-    return min + randbelow(diff + 1)
+    return min + randbelow((max - min) + 1)
 
 def psswd(length: int, exclude: str | None) -> str:
     return ''.join(chr(rand(33, 126)) for _ in range(length))
