@@ -6,12 +6,7 @@ def rand(min: int, max: int) -> int:
     return min + randbelow(diff + 1)
 
 def psswd(length: int, exclude: str | None) -> str:
-    word = ""
-    while len(word) < length:
-        char = chr(rand(33, 126))
-        if exclude == None or char not in exclude:
-            word = word + char
-    return word
+    return ''.join(chr(rand(33, 126)) for _ in range(length))
 
 @click.command()
 @click.option("--length", "-l", help="Number of characters to be included in password (default: 16).", default=16, required=False)
