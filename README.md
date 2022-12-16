@@ -24,4 +24,4 @@ Options:
   -e, --exclude TEXT    String representing a list of characters not to
                         include in the password.
   --help                Show this message and exit.
-  ```
+```
